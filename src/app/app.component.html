@@ -1,14 +1,14 @@
 <div class="center-container">
   <h2>Customer information</h2>
   <p>Customer email</p>
-  <input id="email" type="text" placeholder="john.doe@example.com">
+  <input [(ngModel)]="customerEmail" id="email" type="text" placeholder="john.doe@example.com">
   <h2>Credit card information</h2>
   <p>Credit card number</p>
-  <input id="credit-card-number" type="text" placeholder="1234 5678 9012 3456">
+  <input [(ngModel)]="creditCardNumber" id="credit-card-number" type="text" placeholder="1234 5678 9012 3456">
   <p>Expiration date</p>
-  <input id="expiration-date" type="text" placeholder="MM/YY">
+  <input [(ngModel)]="expirationDate" id="expiration-date" type="text" placeholder="MM/YY">
   <p>CVV</p>
-  <input id="cvv" type="text" placeholder="123">
+  <input [(ngModel)]="cvv" id="cvv" type="text" placeholder="123">
   <hr>
   <button id="confirm-button" (click)="onConfirmCheckout()">Confirm checkout</button>
 </div>

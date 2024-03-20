@@ -9,9 +9,22 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'e2e-exercice';
 
+  // Checkout
+  customerEmail: string = '';
+  creditCardNumber: string = '';
+  expirationDate: string = '';
+  cvv: string = '';
+
   constructor(private http: HttpClient) { }
 
   onConfirmCheckout() {
-    console.log('Confirm checkout');
+    this.http.post('http://localhost:3005/checkout', {
+      email: this.customerEmail,
+      creditCardNumber: this.creditCardNumber,
+      expirationDate: this.expirationDate,
+      cvv: this.cvv
+    }).subscribe(
+      () => console.log('Checkout confirmed')
+    );
   }
 }

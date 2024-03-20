@@ -1,9 +1,20 @@
 const http = require('http');
 
 http.createServer(function (req, res) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+  if (req.method === 'OPTIONS') {
+    console.log('OPTIONS');
+    res.writeHead(200);
+    res.end();
+    return;
+  }
+
   switch (req.url) {
-    case '/orders':
-      res.writeHead(200, { 'Content-Type': 'application/json' });
+    case '/checkout':
+      res.writeHead(200);
       res.end(JSON.stringify({ order: { id: 1, name: 'Order 1' } }));
       break;
     default:
